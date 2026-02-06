@@ -1,21 +1,7 @@
 import { ctx, size } from "./script.js"
+import { getRandomNumber, multiples, colorIndex} from "./utils.js"
 
-let multiples = []
-for(let i = 0; i < 600; i += 30){
-    multiples.push(i)
-}
-
-let colorIndex = []
-for(let j = 0; j <= 255; j++){
-    colorIndex.push(j)
-}
-
-const getRandomNumber = (arr) => {
-    const index = Math.floor(Math.random() * arr.length)
-    return arr[index]
-}
-
-const food = {
+export const food = {
     x: getRandomNumber(multiples),
     y: getRandomNumber(multiples),
     color: `rgb(
@@ -25,7 +11,7 @@ const food = {
     )`
 }
 
-export const drawFood = () => {
+export const drawFood = (food) => {
     ctx.fillStyle = food.color
     ctx.shadowColor = food.color
     ctx.shadowBlur = 6
