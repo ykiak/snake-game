@@ -1,17 +1,15 @@
 import { ctx, size } from "./script.js"
-import { getRandomNumber, multiples, colorIndex} from "./utils.js"
+import { randomColor, randomPosition } from "./utils.js"
 
+const {red, green, blue} = randomColor()
 export const food = {
-    x: getRandomNumber(multiples),
-    y: getRandomNumber(multiples),
-    color: `rgb(
-    ${getRandomNumber(colorIndex)},
-    ${getRandomNumber(colorIndex)},
-    ${getRandomNumber(colorIndex)}
-    )`
+    x: randomPosition(),
+    y: randomPosition(),
+    color: `rgb(${red}, ${green}, ${blue})`
 }
 
-export const drawFood = (food) => {
+export const drawFood = () => {
+
     ctx.fillStyle = food.color
     ctx.shadowColor = food.color
     ctx.shadowBlur = 6

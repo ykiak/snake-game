@@ -1,12 +1,11 @@
 import { ctx, size } from "./script.js"
 import { drawFood, food } from "./food.js"
-import { getRandomNumber, multiples, colorIndex } from "./utils.js"
+import { randomColor, randomPosition } from "./utils.js"
 
 const snake = [
     { x: 30, y: 30 },
     { x: 60, y: 30 },
 ]
-
 let direction
 
 export const drawSnake = () => {
@@ -21,6 +20,7 @@ export const drawSnake = () => {
 
 export const moveSnake = () => {
     if (!direction) return
+    drawFood()
     const head = snake[snake.length - 1]
     snake.shift()
 
@@ -31,19 +31,24 @@ export const moveSnake = () => {
 }
 
 export const growSnake = () => {
+    const {red, green, blue} = randomColor()
+    let x = randomPosition()
+    let y = randomPosition()
+    
+    while(snake.some(e => e.x === x && e.y === y)){
+        x = randomPosition()
+        y = randomPosition()
+    }
+
     const head = snake[snake.length - 1]
     if (head.x === food.x && head.y === food.y) {
         snake.push(head)
 
-        food.x = getRandomNumber(multiples)
-        food.y = getRandomNumber(multiples)
-        food.color = `rgb(
-            ${getRandomNumber(colorIndex)},
-            ${getRandomNumber(colorIndex)},
-            ${getRandomNumber(colorIndex)}
-            )`
+        food.x = x,
+        food.y = y,
+        food.color = `rgb(${red}, ${green}, ${blue})`
 
-        drawFood(food)
+        drawFood()
     }
 }
 
