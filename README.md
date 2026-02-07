@@ -4,6 +4,9 @@ A classic Snake Game built with **vanilla JavaScript**, using HTML Canvas for re
 
 The goal is simple: eat as many fruits as possible and achieve the **highest score** before the snake crashes into the walls — or into itself.
 
+## Demo
+<img src="assets/demo.gif>
+
 ## Features
 - Move the snake in all directions
 - Random fruit generation across the map
