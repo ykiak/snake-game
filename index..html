@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=replay" />
     <script src="script/script.js" type="module" defer></script>
 </head>
+
 <body>
+    <div class="score-div">
+        <span>Score: <span class="score">00</span></span>
+        <span>Max. Score: <span class="max-score">00</span></span>
+    </div>
+    <div class="game-over">
+        <h1>Game Over</h1>
+        <button id="restart">
+            <span class="material-symbols-outlined">
+                replay
+            </span>
+        </button>
+    </div>
     <canvas width="600" height="600"></canvas>
 </body>
+
 </html>
